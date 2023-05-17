@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMR Calculator </title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>>
+</head>
+<body>
+   <div class="wrapper"> 
+        <p>Height in CM:
+            <input type="text" id="Height"><br><span id="height_error"></span>
+        </p>
+
+          <p>Height in KG:
+            <input type="text" id="Weight"><br><span id="Weight_error"></span>
+        </p>
+  <form method="get" id="myForm">     
+    <div class="Gender">
+                 <h3>Gender<h3>
+                 <input type="radio" id="s1" 
+                 value="male" name="Gender" checked />
+                 <label for="male">male</label>
+                 <input type="radio" id="s2"
+                 value="female" name="Gender" />
+                 <label for="male">female</label>
+                </div>
+              <input type="submit" value="submit" />
+            </form>
+
+          <button id="BTN">Calculate</button>
+          <p id="output"></p>
+    </div>
+<html>
+<head>
+  <title>bmr-calculator</title>
+  <style>
+    .bmr-calculator {
+      margin: 0%;
+      padding: 0%;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: skyblue;
+    }
+    span{
+       color:red;
+    }
+    .wrapper{
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 15px;
+        background:silver;
+        border-radius: 5px;
+        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    }
+    input{
+      outline: none;
+      border: none;
+      padding: 5px;
+    }
+    button{
+      color: white;
+      padding: 10px;
+      border: 2px solid white;
+      background: black;
+      display: block;
+      margin-top: 10%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="bmr-calculator">
+    <!-- 在此处添加你的内容 -->
+  </div>
+</body>
+</html>
+
+ <script>
+  document.getElementById("myForm").addEvenListener("submit",function (event) {
+     event.preventDefault();//防止表單提交後刷新頁面
+  })
+    let button = document.getElementById('btn');
+
+    button.addEvenListener('click',()=> {
+      const height = parseInt(document.getElementById('height').value);
+      const weight =parseInt(document.getElementById('weight').value);
+      const male =document.getElementById("s1");
+      const female = document.getElementById("s2");
+      const result =document.getElementById('output');
+      let height_status=false,weight_status=false;
+
+       let bmr;
+       let status;
+      if (height ===''|| isNaN(height)|| (height<= 0)){
+        document.getElementById('height_error').innerHTML='Please provide a valid height';
+      }else{
+        document.getElementById('height_error').innerHTML='';height_status=true
+      }
+
+      if(weight === ''|| isNaN(weight)|| (weight<= 0)){
+        document.getElementById('weight_error').innerHTML='Please provide a valid weight';
+       }else{
+        document.getElementById('weight_error').innerHTML=''
+        ;height_status=true
+       }
+
+       if(height_status && weight_status){
+         const bmr = (weight * 9.99 + height * 6.25 - age * 4.92 + (Gender * 166 - 161)).toFixed(2);
+       }
+       alert("這個網頁顯示您的 bmr 值為:" +bmr.toFixed(2));   
+    });         
+  </script>
+</body>
+</html>
+
